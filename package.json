@@ -1,0 +1,32 @@
+{
+  "name": "certainty-enzyme",
+  "version": "0.0.1",
+  "description": "Extends the Certainty assertion framework with assertions for React Enzyme tests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viridia/certainty-enzyme.git"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "assertion",
+    "assert",
+    "certainty",
+    "react",
+    "enzyme"
+  ],
+  "author": "Talin <viridia@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viridia/certainty-enzyme/issues"
+  },
+  "homepage": "https://github.com/viridia/certainty-enzyme#readme",
+  "dependencies": {
+    "certainty": "^1.1.0",
+    "enzyme": "^2.4.1"
+  }
+}
