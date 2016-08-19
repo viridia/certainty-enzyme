@@ -4,7 +4,8 @@
   "description": "Extends the Certainty assertion framework with assertions for React Enzyme tests.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start --single-run",
+    "test-travis": "karma start --single-run --browsers Firefox,PhantomJS"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,18 @@
   "dependencies": {
     "certainty": "^1.1.0",
     "enzyme": "^2.4.1"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "eslint": "^3.3.1",
+    "karma": "^1.2.0",
+    "karma-browserify": "^5.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "mocha": "^3.0.2",
+    "phantomjs-prebuilt": "^2.1.12",
+    "react": "^15.3.0",
+    "watchify": "^3.7.0"
   }
 }

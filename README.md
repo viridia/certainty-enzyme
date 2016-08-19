@@ -1,8 +1,8 @@
-# Certainty-Enzyme
+# Certainty-Enzyme ![](https://travis-ci.org/viridia/certainty-enzyme.svg?branch=master)
 
 ## Introduction
 
-**Certainty-Enzyme** extends the [Certainty](https://github.com/viridia/certainty-dom) assertion
+**Certainty-Enzyme** extends the [Certainty](https://github.com/viridia/certainty) assertion
 library with assertion methods for React Enzyme wrapper objects.
 
 Example:
@@ -12,13 +12,16 @@ import { mount } from 'enzyme';
 import { ensure } from 'certainty';
 import 'certainty-enzyme';
 
-// Assert that the body element has the expected tag name.
+// Assert that the component element has the expected CSS class.
 const component = mount(<MyComponent />);
 ensure(component).is('.selected');
 ```
 
-## Element assertions
+## ReactWrapper and ShallowWrapper assertions
 
 ```javascript
+ensure(componentOrNode).is(selector);
+ensure(componentOrNode).isNot(selector);
 ensure(componentOrNode).hasClass(clsName);
+ensure(componentOrNode).doesNotHaveClass(clsName);
 ```
