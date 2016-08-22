@@ -24,4 +24,13 @@ ensure(componentOrNode).is(selector);
 ensure(componentOrNode).isNot(selector);
 ensure(componentOrNode).hasClass(clsName);
 ensure(componentOrNode).doesNotHaveClass(clsName);
+ensure(componentOrNode).contains(nodeOrNodes);
+ensure(componentOrNode).doesNotContain(nodeOrNodes);
+ensure(componentOrNode).containsMatchingElement(nodes);
+ensure(componentOrNode).containsAllMatchingElements(nodes);
+ensure(componentOrNode).containsAnyMatchingElements(nodes);
+ensure(componentOrNode).containsNoMatchingElements(nodes);
 ```
+
+Note: Additional assertion methods may be added later once I figure out a suitably grammatical way
+to phrase the failure messages.
