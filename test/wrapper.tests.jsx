@@ -3,17 +3,16 @@ var React = require('react'); // eslint-disable-line no-unused-vars
 var ensure = require('certainty').ensure;
 var mount = require('enzyme').mount;
 var TestComponent = require('./testComponent.jsx').TestComponent;
-// var ChildComponent = require('./testComponent.jsx').ChildComponent;
 require('../index');
 
 function assertThrows(f, msg) {
   try {
     f();
   } catch (e) {
-    if (String(e) != 'Error: ' + msg) {
-      throw e;
-      // console.log(e);
-    }
+    // Uncomment to show source of exception instead of text differences. Can't show both.
+    // if (String(e) != 'Error: ' + msg) {
+    //   throw e;
+    // }
     ensure(String(e)).named('message').equals('Error: ' + msg);
     return;
   }
@@ -113,6 +112,15 @@ describe('ensure.ReactWrapper', function () {
     ensure(div).hasAttribute('name').withValue('test');
     assertThrows(function () { ensure(div).hasAttribute('invalid'); },
       "Expected <div> to have an attribute named 'invalid'.");
+    assertThrows(function () { ensure(div).hasAttribute('name').withValue('bad'); },
+      "Expected <div> to have an attribute 'name' with value \"bad\", " +
+      "actual value was \"test\".");
   });
 
+
+  it('.doesNotHaveAttribute()', function () {
+    ensure(div).doesNotHaveAttribute('invalid');
+    assertThrows(function () { ensure(div).doesNotHaveAttribute('name'); },
+      "Expected <div> to not have an attribute named 'name'.");
+  });
 });
