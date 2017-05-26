@@ -29,6 +29,12 @@ describe('ensure.ReactWrapper', function () {
     div = component.find('div');
   });
 
+  it('.exists', function () {
+    ensure(component).exists();
+    assertThrows(function () { ensure(div.find('footer')).exists(); },
+      "Expected [nonexistent-node] to exist.");
+  });
+
   it('.is', function () {
     ensure(component).is(TestComponent);
     ensure(div).is('.test-component');
@@ -101,4 +107,12 @@ describe('ensure.ReactWrapper', function () {
     }, "Expected <TestComponent> to contain no elements matching any of " +
         "[<span className=\"other\">, <span className=\"inner-span\">].");
   });
+
+  it('.hasAttribute()', function () {
+    ensure(div).hasAttribute('disabled');
+    ensure(div).hasAttribute('name').withValue('test');
+    assertThrows(function () { ensure(div).hasAttribute('invalid'); },
+      "Expected <div> to have an attribute named 'invalid'.");
+  });
+
 });

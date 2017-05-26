@@ -28,7 +28,7 @@
   "homepage": "https://github.com/viridia/certainty-enzyme#readme",
   "dependencies": {
     "certainty": "^1.1.0",
-    "enzyme": "^2.4.1"
+    "enzyme": "^2.8.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -51,9 +51,10 @@
     "mocha": "^3.0.2",
     "phantomjs-polyfill-object-assign": "0.0.2",
     "phantomjs-prebuilt": "^2.1.12",
-    "react": "^15.3.1",
-    "react-addons-test-utils": "^15.3.1",
-    "react-dom": "^15.3.1",
+    "react": "^15.4.2",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.4.2",
+    "react-test-renderer": "^15.5.4",
     "watchify": "^3.7.0"
   },
   "peerDependencies": {

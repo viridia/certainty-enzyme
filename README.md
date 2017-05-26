@@ -20,10 +20,12 @@ ensure(component).is('.selected');
 ## ReactWrapper and ShallowWrapper assertions
 
 ```javascript
+ensure(componentOrNode).exists();
 ensure(componentOrNode).is(selector);
 ensure(componentOrNode).isNot(selector);
 ensure(componentOrNode).hasClass(clsName);
 ensure(componentOrNode).doesNotHaveClass(clsName);
+ensure(componentOrNode).hasAttribute(attrName).withValue(value);
 ensure(componentOrNode).contains(nodeOrNodes);
 ensure(componentOrNode).doesNotContain(nodeOrNodes);
 ensure(componentOrNode).containsMatchingElement(nodes);

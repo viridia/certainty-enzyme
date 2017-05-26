@@ -12,7 +12,7 @@ module.exports.ChildComponent = ChildComponent;
 var TestComponent = React.createClass({
   displayName: 'TestComponent',
   render: function () {
-    return (<div className="test-component">
+    return (<div className="test-component" disabled name="test">
       Test
       <span className="inner-span" />
     </div>);

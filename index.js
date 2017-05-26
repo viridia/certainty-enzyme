@@ -18,6 +18,9 @@ subjectFactory.addType(
 
 // Formatter functions
 function formatWrapper(value, _options) {
+  if (!value.exists()) {
+    return '[nonexistent-node]';
+  }
   return '<' + value.name() + '>';
 }
 registry.addType(function(v) { return v instanceof enzyme.ReactWrapper; }, formatWrapper);
