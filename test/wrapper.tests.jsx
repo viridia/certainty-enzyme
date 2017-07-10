@@ -123,4 +123,18 @@ describe('ensure.ReactWrapper', function () {
     assertThrows(function () { ensure(div).doesNotHaveAttribute('name'); },
       "Expected <div> to not have an attribute named 'name'.");
   });
+
+  it('.attribute()', function () {
+    ensure(div).attribute('disabled').exists();
+    ensure(div).attribute('name').equals('test');
+    assertThrows(function () { ensure(div).attribute('invalid'); },
+      "Expected <div> to have an attribute named 'invalid'.");
+    assertThrows(function () { ensure(div).attribute('name').equals('bad'); },
+      "Expected attribute 'name' of <div> to be \"bad\", " +
+      "actual value was \"test\".");
+  });
+
+  it('.text()', function () {
+    ensure(div).text().equals('Test');
+  });
 });

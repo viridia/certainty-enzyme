@@ -5,14 +5,23 @@ var registry = require('certainty/lib/format/registry');
 var enzyme = require('enzyme');
 var React = require('react');
 
+// We need to compare names because of npm version skew
+function isReactWrapper(v) {
+  return v instanceof enzyme.ReactWrapper || v.constructor.name === 'ReactWrapper';
+}
+
+function isShallowWrapper(v) {
+  return v instanceof enzyme.ShallowWrapper || v.constructor.name === 'ShallowWrapper';
+}
 // Subject types
+
 subjectFactory.addType(
-  function (v) { return v instanceof enzyme.ReactWrapper },
+  isReactWrapper,
   ReactWrapperSubject
 );
 
 subjectFactory.addType(
-  function (v) { return v instanceof enzyme.ShallowWrapper },
+  isShallowWrapper,
   ShallowWrapperSubject
 );
 
@@ -23,8 +32,8 @@ function formatWrapper(value, _options) {
   }
   return '<' + value.name() + '>';
 }
-registry.addType(function(v) { return v instanceof enzyme.ReactWrapper; }, formatWrapper);
-registry.addType(function(v) { return v instanceof enzyme.ShallowWrapper; }, formatWrapper);
+registry.addType(isReactWrapper, formatWrapper);
+registry.addType(isShallowWrapper, formatWrapper);
 var reactElementType = React.createElement('div').$$typeof;
 registry.addType(
   function(v) { return v && v.type && v.props && v.$$typeof == reactElementType; },

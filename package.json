@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/viridia/certainty-enzyme#readme",
   "dependencies": {
-    "certainty": "^1.1.0",
+    "certainty": "^1.4.0",
     "enzyme": "^2.8.2"
   },
   "devDependencies": {
