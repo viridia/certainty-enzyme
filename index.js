@@ -7,14 +7,16 @@ var React = require('react');
 
 // We need to compare names because of npm version skew
 function isReactWrapper(v) {
-  return v instanceof enzyme.ReactWrapper || v.constructor.name === 'ReactWrapper';
+  return v instanceof enzyme.ReactWrapper ||
+    (v && v.constructor && v.constructor.name === 'ReactWrapper');
 }
 
 function isShallowWrapper(v) {
-  return v instanceof enzyme.ShallowWrapper || v.constructor.name === 'ShallowWrapper';
+  return v instanceof enzyme.ShallowWrapper ||
+    (v && v.constructor && v.constructor.name === 'ShallowWrapper');
 }
-// Subject types
 
+// Subject types
 subjectFactory.addType(
   isReactWrapper,
   ReactWrapperSubject
